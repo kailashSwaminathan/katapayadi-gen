@@ -18,6 +18,26 @@ Rules
   - In a conjunct consonant, the last of the consonants alone will count. 
   - A consonant without a vowel is to be ignored.
 
+## syntax
+
+The syntax is
+  
+    $> python main.py [--mode=<brute>] <number>
+		
+The कटपयादि (*katapayadi*) string is computed for the `number`. The method for generation of the 
+कटपयादि string can be specified using the `--mode` option. The supported methods are
+	
+  - brute
+    In this method, the characters for the digits of the `number` are determined 
+	according to the कटपयादि scheme. From this, a list of all possible combination is
+	computed. Each combination is further expanded, by adding *maathras* to each *akshara*
+	in the combination. Again, for each *maathras* added combination, a maximum of 
+	`n(=1, default)` *half vyanjanas* are added. Finally one of this expanded combination
+	is chosen at random and given as output. Please be aware that, in this method,
+	there is not checking whether the chosen output is a valid word in संस्कृतं. 
+    
+	
+
 ## install
 
 Supported `python` version 3.x.
@@ -34,11 +54,22 @@ Supported `python` version 3.x.
 
   - Start the python IDLE editor
   
-      $> python -m idlelib.idle
+        $> python -m idlelib.idle
+	  
+	This is required as I still havent figured out how to display unicode characters in
+	Windows Command Prompt.    
 	  
   - Open the main.py using the IDLE and press Shift+F5 to open a 
-    text entry dialog to pass command line arguments.
-  - 
+    text entry dialog to pass command line arguments. Enter the number for which the 
+	कटपयादि sequence is required. Press Enter.
+	
+  - The कटपयादि sequence is printed in the IDLE shell.
+  
+
+## to do
+
+  - Generate meaningful output by checking against a dictionary.
+  
   
 ## acknowledgements
 
