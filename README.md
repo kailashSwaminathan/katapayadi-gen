@@ -1,8 +1,8 @@
 # katapayadi-gen
-Generator of word sequences in संस्कृतं for numerical input based on the कटपयादि schema
+Generator of word sequences in संस्कृतं for numerical input based on the कटपयादि scheme.
 
 The कटपयादि is a scheme used to encode numerical entities (like date of composition, value of pi, etc)
-in prose/poetry.
+in Sanskrit prose/poetry.
 
 ## introduction
 
@@ -22,21 +22,30 @@ Rules
 
 The syntax is
   
-    $> python main.py [--mode=<brute>] <number>
+    $> python main.py [--method=<brute>] [--mode=<single>] <number>
 		
 The कटपयादि (*katapayadi*) string is computed for the `number`. The method for generation of the 
-कटपयादि string can be specified using the `--mode` option. The supported methods are
+कटपयादि string can be specified using the `method` option. The `mode` option is used to specify
+the count of कटपयादि string generated. 
+
+The supported values for the `method` option are
 	
-  - brute
+  - `brute`
+  
     In this method, the characters for the digits of the `number` are determined 
 	according to the कटपयादि scheme. From this, a list of all possible combination is
 	computed. Each combination is further expanded, by adding *maathras* to each *akshara*
 	in the combination. Again, for each *maathras* added combination, a maximum of 
 	`n(=1, default)` *half vyanjanas* are added. Finally one of this expanded combination
 	is chosen at random and given as output. Please be aware that, in this method,
-	there is not checking whether the chosen output is a valid word in संस्कृतं. 
+	there is not checking whether the chosen output is a valid word in संस्कृतं. This is the
+	default value for the `method` option.
     
-	
+The supported values for the `mode` option are 
+
+  - `single`
+  
+    A single generated कटपयादि string is randomly selected and returned.
 
 ## install
 
@@ -61,7 +70,7 @@ Supported `python` version 3.x.
 	  
   - Open the main.py using the IDLE and press Shift+F5 to open a 
     text entry dialog to pass command line arguments. Enter the number for which the 
-	कटपयादि sequence is required. Press Enter.
+	कटपयादि sequence is required and optionally other options. Press Enter.
 	
   - The कटपयादि sequence is printed in the IDLE shell.
   
@@ -73,6 +82,6 @@ Supported `python` version 3.x.
   
 ## acknowledgements
 
-The inspiration for this work is the course titled "Computational Thinking in Indic Tradition"
-delivered by Prof.Gopinath Kanchi (Dept.of CSA, IISc., Bangalore) and Dr.Shailaja D.Sharma(Adj.Prof., NIAS, Bangalore)
-as the part of the Centre for Continuing Education (IISc.) Proficience Courses conducted from August to December 2020.
+The inspiration for this work is the course titled **"Computational Thinking in Indic Tradition"**
+delivered by **Prof.Gopinath Kanchi** (Dept.of CSA, IISc., Bangalore) and **Dr.Shailaja D.Sharma** (Adj.Prof., NIAS, Bangalore)
+as the part of the Proficience Courses conducted by **Centre for Continuing Education (IISc.)** from August to December 2020.
