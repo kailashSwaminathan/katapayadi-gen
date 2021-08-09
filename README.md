@@ -22,7 +22,7 @@ Rules
 
 The syntax is
   
-    $> python main.py [--method=<brute>] [--mode=<single>] <number>
+    $> python main.py [--method=<brute|dict>] [--mode=<single>] <number>
 		
 The कटपयादि (*katapayadi*) string is computed for the `number`. The method for generation of the 
 कटपयादि string can be specified using the `method` option. The `mode` option is used to specify
@@ -40,6 +40,11 @@ The supported values for the `method` option are
 	is chosen at random and given as output. Please be aware that, in this method,
 	there is not checking whether the chosen output is a valid word in संस्कृतं. This is the
 	default value for the `method` option.
+	
+  - `dict`
+  
+    In this method, a dictionary is used to generate a list of words for the digits 
+    of the `number`.	
     
 The supported values for the `mode` option are 
 
